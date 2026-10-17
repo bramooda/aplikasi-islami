@@ -1,0 +1,422 @@
+/* Import Font */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 480px;
+  min-height: 100vh;
+  background-color: #ffffff;
+  position: relative;
+}
+
+/* WADAH UTAMA HIJAU (DIBUAT STICKY/TERKUNCI DI BELAKANG) */
+.header-hero-wrapper {
+  background-color: #14A795 !important;
+  width: 100%;
+  padding-bottom: 45px;
+  position: sticky !important; /* Terkunci di posisi atas */
+  top: 0;
+  z-index: 1; /* Di bawah kartu putih */
+  overflow: hidden !important;
+}
+
+/* SILUET MASJID PRESISI DI TENGAH (SIMETRIS) */
+.header-hero-wrapper::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 130px; /* Ditambah tingginya agar kubah naik ke belakang jam */
+  
+  /* Vektor Siluet Masjid Simetris dengan Kubah Utama di Tengah */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 400' fill='%23000000'%3E%3Cpath d='M500 30 C410 30, 390 110, 370 140 H630 C610 110, 590 30, 500 30 Z M370 140 H280 C260 180, 250 200, 240 220 H760 C750 200, 740 180, 720 140 H630 Z M240 220 H120 C110 240, 100 250, 90 260 H910 C900 250, 890 240, 880 220 H760 Z M90 260 H0 V400 H1000 V260 H910 Z'/%3E%3C/svg%3E");
+  
+  background-size: contain; /* Memastikan seluruh bentuk kubah masuk dan simetris di tengah */
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  
+  opacity: 0.12; /* Kepekatan warna hitam pudar agar lembut */
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* MEMASTIKAN TEKS BERADA DI ATAS SILUET */
+.top-bar, .prayer-info {
+  position: relative;
+  z-index: 2;
+}
+
+/* HEADER ATAS */
+.top-bar {
+  padding: 14px 18px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+.user-profile {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px;
+}
+
+.profile-img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ffffff;
+  background-color: #e0e0e0;
+}
+
+.user-text {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1.5px;
+}
+
+.greeting {
+  font-size: 15px;
+  color: #ffffff;
+  font-weight: 620;
+}
+
+.user-name {
+  font-size: 12.5px;
+  color: #ffffff;
+  font-weight: 400;
+  opacity: 0.95;
+}
+
+.notification-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* JAM & LOKASI */
+.prayer-info {
+  padding: 15px 18px 0 18px !important;
+  text-align: center !important;
+  color: #ffffff !important;
+}
+
+.main-clock {
+  font-size: 60px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  letter-spacing: -1px;
+  margin-bottom: 4px !important;
+}
+
+.main-clock .colon {
+  font-family: Arial, sans-serif !important;
+  position: relative;
+  top: -3px;
+  margin: 0 1px;
+}
+
+.countdown-text {
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  opacity: 0.95;
+  margin-bottom: 35px !important;
+}
+
+.location-box {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.location-name {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  font-size: 15.5px !important;
+  font-weight: 700 !important;
+}
+
+.location-name svg {
+  color: #ffffff !important;
+  flex-shrink: 0;
+}
+
+.date-text {
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  opacity: 0.9;
+}
+
+/* TATA LETAK BOTTOM SHEET (DIBUAT MELUNCUR NAIK MENUTUPI AREA HIJAU) */
+.bottom-sheet {
+  background-color: #ffffff !important;
+  width: 100%;
+  min-height: 120vh; /* Ditambah tingginya agar leluasa di-scroll sampai atas */
+  border-top-left-radius: 28px !important;
+  border-top-right-radius: 28px !important;
+  margin-top: -20px !important;
+  position: relative;
+  z-index: 10; /* Berada di lapisan atas menutupi area hijau */
+  padding: 16px 18px;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Garis Indikator di Atas Kartu */
+.sheet-handle {
+  width: 40px;
+  height: 4px;
+  background-color: #d1d5db;
+  border-radius: 2px;
+  margin: 0 auto 20px auto;
+}
+
+/* Grid Menu Kotak Hijau */
+.menu-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.menu-icon-box {
+  width: 65px;
+  height: 65px;
+  background-color: #14A795;
+  border-radius: 14px;
+  margin: 0 auto;
+}
+
+.menu-item span {
+  font-size: 11px;
+  font-weight: 570;
+  color: #6b7280;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* CONTAINER SEARCH UTAMA */
+.search-container {
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 24px;
+}
+
+/* KOTAK ABU-ABU CAPSULE (PERSIS REFERENSI) */
+.search-box {
+  background-color: #f3f4f6 !important; /* Latar abu-abu terang */
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px;
+  padding: 12px 16px !important;
+  border-radius: 10px !important; /* Kelengkungan sudut */
+  width: 100%;
+  border: none !important;
+}
+
+.search-box svg {
+  flex-shrink: 0;
+}
+
+.search-box input {
+  border: none !important;
+  outline: none !important;
+  background: transparent !important;
+  width: 100%;
+  font-size: 13.5px;
+  font-weight: 400;
+  color: #374151;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.search-box input::placeholder {
+  color: #9ca3af;
+}
+
+/* STICKY SEARCH HEADER (DISEMBUNYIKAN DI ATAS PADA KONDISI AWAL) */
+.sticky-search-header {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(-110%);
+  width: 100%;
+  max-width: 480px;
+  background-color: #14A795;
+  padding: 12px 18px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  z-index: 100;
+  visibility: hidden;
+  opacity: 0;
+  transition: transform 0.35s ease-in-out, opacity 0.3s ease-in-out, visibility 0.35s;
+}
+
+/* KELAS KETIKA MUNCUL HALUS DARI ATAS */
+.sticky-search-header.show {
+  transform: translateX(-50%) translateY(0);
+  visibility: visible;
+  opacity: 1;
+}
+
+/* CONTAINER KAJIAN ONLINE */
+.section-container {
+  width: 100%;
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.section-header h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #6b7280;
+  margin: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.section-header .see-all {
+  font-size: 13px;
+  font-weight: 600;
+  color: #14A795;
+  text-decoration: none;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* KARTU UTAMA */
+.kajian-card {
+  width: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  background-color: #ffffff;
+  border: 1px solid #f0f0f0;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  margin-top: 10px;
+}
+
+/* THUMBNAIL WAPPER (PERLU position: relative SUPAYA BADGE ABSOLUTE BISA MENUMPANG) */
+.thumbnail-wrapper {
+  position: relative;
+  width: 100%;
+  height: 190px;
+  background-color: #14A795;
+}
+
+.thumbnail-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* BADGE LIVE MERAH MELAYANG ABSOLUTE DIATAS GAMBAR */
+.badge-live {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: #ef4444;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+  letter-spacing: 0.5px;
+  z-index: 2;
+}
+
+/* AREA INFORMASI BAWAH */
+.kajian-info {
+  padding: 14px 16px 16px 16px;
+  background-color: #ffffff;
+}
+
+.kajian-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 6px 0;
+  line-height: 1.35;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* BARIS USERNAME & VIEWS KECIL */
+.kajian-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  color: #9ca3af;
+  margin-bottom: 12px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.meta-handle {
+  font-weight: 650;
+}
+
+.meta-views {
+  font-weight: 400;
+}
+
+/* BARIS NAMA CHANNEL & CENTANG HIJAU */
+.channel-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.avatar-circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #14A795;
+  flex-shrink: 0;
+}
+
+.channel-name {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #374151;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.verified-icon {
+  flex-shrink: 0;
+}
