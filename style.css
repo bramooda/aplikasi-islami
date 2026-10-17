@@ -33,7 +33,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 15px 10px 15px;
+  padding: 14px 14px 10px 14px;
 }
 
 /* PROFIL KIRI */
@@ -58,7 +58,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: -2px;
+  margin-top: -3px;
 }
 
 .greeting-text {
@@ -69,7 +69,7 @@ body {
 }
 
 .user-name {
-  font-size: 8px;
+  font-size: 10px;
   font-weight: 450;
   color: #ffffff;
   opacity: 0.8;
