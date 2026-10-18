@@ -39,19 +39,19 @@ body {
   overflow: hidden !important;
 }
 
-/* SILUET MASJID DARI FILE UPLOAD (FULL WIDTH & PRESISI) */
+/* SILUET MASJID (PROPORSIONAL, TINGGI PAS, TANPA CELAH KIRI-KANAN) */
 .header-hero-wrapper::after {
   content: "";
   position: absolute;
   bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 220px; /* Tingginya dinaikkan agar siluet melingkupi belakang jam & lokasi */
+  left: -2px; /* Ditarik sedikit ke luar agar celah hilang total */
+  width: calc(100% + 4px); /* Melebar penuh tanpa celah */
+  height: 180px; /* Tinggi proporsional yang pas di belakang teks lokasi */
   background-image: url("siluetmasjid.png");
-  background-size: 100% 100%; /* Memaksa siluet membentang penuh tanpa celah kiri/kanan */
+  background-size: cover; /* Menjaga proporsi gambar asli agar tidak gepeng */
   background-position: bottom center;
   background-repeat: no-repeat;
-  opacity: 0.15; /* Kepekatan warna siluet */
+  opacity: 0.15;
   pointer-events: none;
   z-index: 1;
 }
