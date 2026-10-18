@@ -4,6 +4,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Plus Jakarta Sans', sans-serif;
+  -webkit-tap-highlight-color: transparent;
 }
 
 html, body {
@@ -49,7 +50,7 @@ body {
   height: 180px; /* Tinggi proporsional yang pas di belakang teks lokasi */
   background-image: url("siluetmasjid.png");
   background-size: cover; /* Menjaga proporsi gambar asli agar tidak gepeng */
-  background-position: center bottom -12px; /* Angka -12px (atau disesuaikan) untuk mendorong siluet sedikit ke bawah */
+  background-position: center bottom -18px; /* Angka -12px (atau disesuaikan) untuk mendorong siluet sedikit ke bawah */
   background-repeat: no-repeat;
   opacity: 0.15;
   pointer-events: none;
@@ -141,7 +142,8 @@ body {
 
 .main-clock {
   font-size: 53px;
-  font-weight: 950;
+  font-weight: 900;
+  -webkit-text-stroke: 1px #ffffff;
   letter-spacing: -1px;
   line-height: 1;
   color: #ffffff;
