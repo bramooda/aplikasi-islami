@@ -40,7 +40,7 @@ body {
 .profile-section {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 9px;
 }
 
 .avatar-box {
