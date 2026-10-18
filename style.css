@@ -33,7 +33,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px 14px 10px 14px;
+  padding: 14.5px 14.5px 10px 14.5px;
 }
 
 /* PROFIL KIRI */
@@ -73,7 +73,7 @@ body {
   font-weight: 450;
   color: #ffffff;
   opacity: 0.8;
-  margin-top: 1px;
+  margin-top: 1.5px;
 }
 
 /* TOMBOL LONCENG KANAN */
