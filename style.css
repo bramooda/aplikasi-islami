@@ -39,19 +39,19 @@ body {
   overflow: hidden !important;
 }
 
-/* SILUET MASJID DARI FILE UPLOAD */
+/* SILUET MASJID DARI FILE UPLOAD (FULL WIDTH & PRESISI) */
 .header-hero-wrapper::after {
   content: "";
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 130px;
+  height: 220px; /* Tingginya dinaikkan agar siluet melingkupi belakang jam & lokasi */
   background-image: url("siluetmasjid.png");
-  background-size: contain;
+  background-size: 100% 100%; /* Memaksa siluet membentang penuh tanpa celah kiri/kanan */
   background-position: bottom center;
   background-repeat: no-repeat;
-  opacity: 0.15;
+  opacity: 0.15; /* Kepekatan warna siluet */
   pointer-events: none;
   z-index: 1;
 }
@@ -140,8 +140,8 @@ body {
 }
 
 .main-clock {
-  font-size: 58px;
-  font-weight: 800;
+  font-size: 53px;
+  font-weight: 950;
   letter-spacing: -1px;
   line-height: 1;
   color: #ffffff;
@@ -155,11 +155,11 @@ body {
 }
 
 .countdown-text {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 500;
   opacity: 0.9;
-  margin-top: 8px;
-  margin-bottom: 22px;
+  margin-top: 3px;
+  margin-bottom: 20px;
 }
 
 .location-box {
@@ -174,12 +174,12 @@ body {
   align-items: center;
   gap: 6px;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 650;
   color: #ffffff;
 }
 
 .date-text {
-  font-size: 12.5px;
+  font-size: 12px;
   font-weight: 500;
   opacity: 0.85;
 }
