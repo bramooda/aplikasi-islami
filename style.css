@@ -49,7 +49,7 @@ body {
   height: 180px; /* Tinggi proporsional yang pas di belakang teks lokasi */
   background-image: url("siluetmasjid.png");
   background-size: cover; /* Menjaga proporsi gambar asli agar tidak gepeng */
-  background-position: bottom center;
+  background-position: center bottom -12px; /* Angka -12px (atau disesuaikan) untuk mendorong siluet sedikit ke bawah */
   background-repeat: no-repeat;
   opacity: 0.15;
   pointer-events: none;
