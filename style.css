@@ -22,10 +22,44 @@ body {
 .app-container {
   width: 100%;
   max-width: 480px;
-  background-color: #14A795; /* Warna hijau khas */
+  background-color: #ffffff; /* Latar belakang putih untuk area bawah nanti */
   min-height: 100vh;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
+}
+
+/* WADAH UTAMA HIJAU (DIBUAT STICKY/TERKUNCI DI BELAKANG) */
+.header-hero-wrapper {
+  background-color: #14A795 !important;
+  width: 100%;
+  padding-bottom: 25px;
+  position: sticky !important;
+  top: 0;
+  z-index: 1;
+  overflow: hidden !important;
+}
+
+/* SILUET MASJID DARI FILE UPLOAD */
+.header-hero-wrapper::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  background-image: url("siluetmasjid.png");
+  background-size: contain;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* MEMASTIKAN ELEMEN DI DALAMNYA BERADA DI ATAS SILUET */
+.app-header, .prayer-info {
+  position: relative;
+  z-index: 2;
 }
 
 /* HEADER SECTION */
@@ -33,7 +67,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14.5px 14.5px 10px 14.5px;
+  padding: 14.5px 14.5px 0 14.5px;
 }
 
 /* PROFIL KIRI */
