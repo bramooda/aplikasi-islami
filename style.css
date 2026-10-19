@@ -31,13 +31,12 @@ body {
   overflow: hidden; /* Cegah seluruh layar ikut tergulir */
 }
 
-/* WADAH UTAMA HIJAU (DIBUAT STICKY/TERKUNCI DI BELAKANG) */
+/* WADAH UTAMA HIJAU (DIKUNCI DI ATAS TANPA STICKY) */
 .header-hero-wrapper {
   background-color: #14A795 !important;
   width: 100%;
   padding-bottom: 30px;
-  position: sticky !important;
-  top: 0;
+  position: relative; /* Diubah dari sticky agar stabil di dalam flexbox */
   z-index: 1;
   overflow: hidden !important;
   flex-shrink: 0; /* Mencegah header memipih */
