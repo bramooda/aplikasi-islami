@@ -23,10 +23,12 @@ body {
 .app-container {
   width: 100%;
   max-width: 480px;
-  background-color: #ffffff; /* Latar belakang putih untuk area bawah nanti */
-  min-height: 100vh;
+  background-color: #ffffff;
+  height: 100vh; /* Ubah dari min-height ke height pas 1 layar */
+  display: flex;
+  flex-direction: column;
   position: relative;
-  overflow-x: hidden;
+  overflow: hidden; /* Cegah seluruh layar ikut tergulir */
 }
 
 /* WADAH UTAMA HIJAU (DIBUAT STICKY/TERKUNCI DI BELAKANG) */
@@ -38,6 +40,7 @@ body {
   top: 0;
   z-index: 1;
   overflow: hidden !important;
+  flex-shrink: 0; /* Mencegah header memipih */
 }
 
 /* SILUET MASJID (PROPORSIONAL, TINGGI PAS, TANPA CELAH KIRI-KANAN) */
@@ -190,12 +193,15 @@ body {
    BOTTOM SHEET CONTAINER (AREA PUTIH MELENGKUNG)
    ========================================== */
 .bottom-sheet {
+  flex: 1;
+  overflow-y: auto; /* Hanya wadah putih ini yang bisa di-scroll */
+  -webkit-overflow-scrolling: touch;
   position: relative;
   z-index: 10;
   background-color: #ffffff;
-  border-radius: 24px 24px 0 0;
-  margin-top: -18px; /* Menumpuk sedikit di atas header hijau */
-  padding: 12px 18px 24px 18px;
+  border-radius: 20px 20px 0 0;
+  margin-top: -18px;
+  padding: 12px 18px 30px 18px;
   box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
 }
 
@@ -226,7 +232,7 @@ body {
 .menu-icon-box {
   width: 52px;
   height: 52px;
-  background-color: rgba(20, 167, 149, 0.15); /* <-- UBAH KE RGBA UNTUK TRANSPARANSI */
+  background-color: #14A795;
   border-radius: 14px;
   transition: transform 0.15s ease, background-color 0.2s ease;
 }
@@ -237,9 +243,9 @@ body {
 }
 
 .menu-label {
-  font-size: 11.5px;
-  font-weight: 600;
-  color: #4b5563;
+  font-size: 8px;
+  font-weight: 550;
+  color: #6b7280;
   text-align: center;
   line-height: 1.2;
 }
