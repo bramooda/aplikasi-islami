@@ -9,8 +9,7 @@
 
 html, body {
   width: 100%;
-  height: 100%; /* <-- INI YANG KURANG: Mengunci tinggi dasar browser HP */
-  overflow: hidden; /* <-- Mencegah halaman luar ikut terseret scroll */
+  height: 100%;
   touch-action: manipulation;
   -webkit-text-size-adjust: 100%;
 }
@@ -20,13 +19,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden; /* Mengunci layar luar agar hanya app-container yang aktif */
 }
 
 /* CONTAINER APPS (SIMULASI TAMPILAN HP) */
 .app-container {
   width: 100%;
   max-width: 480px;
-  height: 100%; /* Memastikan kontainer HP pas mengisi layar */
+  height: 100%;
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
@@ -42,7 +42,7 @@ body {
   position: relative;
   z-index: 1;
   overflow: hidden !important;
-  flex-shrink: 0; /* Menjaga ukuran header agar tidak ikut menciut */
+  flex-shrink: 0;
 }
 
 /* SILUET MASJID (PROPORSIONAL, TINGGI PAS, TANPA CELAH KIRI-KANAN) */
@@ -196,7 +196,7 @@ body {
    ========================================== */
 .bottom-sheet {
   flex: 1;
-  overflow-y: auto; /* Area inilah yang sekarang leluasa di-scroll mandiri */
+  overflow-y: auto; /* Mengaktifkan kembali fungsi scroll khusus area putih */
   -webkit-overflow-scrolling: touch;
   position: relative;
   z-index: 10;
