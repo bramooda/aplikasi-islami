@@ -8,38 +8,41 @@
 }
 
 html, body {
-  touch-action: manipulation; /* Mencegah double-tap to zoom */
-  -webkit-text-size-adjust: 100%; /* Mencegah teks otomatis membesar sendiri di HP tertentu */
+  width: 100%;
+  height: 100%; /* <-- INI YANG KURANG: Mengunci tinggi dasar browser HP */
+  overflow: hidden; /* <-- Mencegah halaman luar ikut terseret scroll */
+  touch-action: manipulation;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   background-color: #f3f4f6;
   display: flex;
   justify-content: center;
-  min-height: 100vh;
+  align-items: center;
 }
 
 /* CONTAINER APPS (SIMULASI TAMPILAN HP) */
 .app-container {
   width: 100%;
   max-width: 480px;
+  height: 100%; /* Memastikan kontainer HP pas mengisi layar */
   background-color: #ffffff;
-  height: 100vh; /* Ubah dari min-height ke height pas 1 layar */
   display: flex;
   flex-direction: column;
   position: relative;
-  overflow: hidden; /* Cegah seluruh layar ikut tergulir */
+  overflow: hidden;
 }
 
-/* WADAH UTAMA HIJAU (DIKUNCI DI ATAS TANPA STICKY) */
+/* WADAH UTAMA HIJAU (DIKUNCI DI ATAS) */
 .header-hero-wrapper {
   background-color: #14A795 !important;
   width: 100%;
   padding-bottom: 30px;
-  position: relative; /* Diubah dari sticky agar stabil di dalam flexbox */
+  position: relative;
   z-index: 1;
   overflow: hidden !important;
-  flex-shrink: 0; /* Mencegah header memipih */
+  flex-shrink: 0; /* Menjaga ukuran header agar tidak ikut menciut */
 }
 
 /* SILUET MASJID (PROPORSIONAL, TINGGI PAS, TANPA CELAH KIRI-KANAN) */
@@ -47,12 +50,12 @@ body {
   content: "";
   position: absolute;
   bottom: 0;
-  left: -2px; /* Ditarik sedikit ke luar agar celah hilang total */
-  width: calc(100% + 4px); /* Melebar penuh tanpa celah */
-  height: 180px; /* Tinggi proporsional yang pas di belakang teks lokasi */
+  left: -2px;
+  width: calc(100% + 4px);
+  height: 180px;
   background-image: url("siluetmasjid.png");
-  background-size: cover; /* Menjaga proporsi gambar asli agar tidak gepeng */
-  background-position: center bottom -21px; /* Angka -12px (atau disesuaikan) untuk mendorong siluet sedikit ke bawah */
+  background-size: cover;
+  background-position: center bottom -21px;
   background-repeat: no-repeat;
   opacity: 0.15;
   pointer-events: none;
@@ -131,7 +134,7 @@ body {
   background: rgba(255, 255, 255, 0.35);
 }
 
-/* AREA JAM & SHALAT (YANG DITAMBAHKAN) */
+/* AREA JAM & SHALAT */
 .prayer-info {
   display: flex;
   flex-direction: column;
@@ -193,7 +196,7 @@ body {
    ========================================== */
 .bottom-sheet {
   flex: 1;
-  overflow-y: auto; /* Hanya wadah putih ini yang bisa di-scroll */
+  overflow-y: auto; /* Area inilah yang sekarang leluasa di-scroll mandiri */
   -webkit-overflow-scrolling: touch;
   position: relative;
   z-index: 10;
